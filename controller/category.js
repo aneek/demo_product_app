@@ -87,3 +87,13 @@ exports.singleCategory = (req, res, next) => {
             break;
     }
 };
+
+// Products by category.
+exports.categoryProducts = (req, res, next) => {
+    category.categoryProducts(req.params.uuid, (err, result) => {
+        if (err) {
+            res.status(400).json(err);
+        }
+        res.status(200).json(result);
+    });
+};

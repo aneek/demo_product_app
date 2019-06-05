@@ -12,6 +12,9 @@ exports.listAll = (result) => {
             result(err, null);
         }
         else {
+            rows.forEach((r, i) => {
+                r.links  = {products : '/category/' + r.uuid + '/product'};
+            });
             result(null, rows);
         }
     })
@@ -65,4 +68,13 @@ exports.deleteCategory = (uuid, result) => {
             result(null, rows);
         }
     })
+};
+
+// List all products by category.
+exports.categoryProducts = (uuid, result) => {
+    db.query("SELECT p.id, p.uuid, p.name, p.description, p.sku, p.price, p.quantity, p.in_stock FROM `products` AS p " +
+        "LEFT JOIN `categories_products` AS cp ON p.id = cp.product_id " +
+        "INNER JOIN `categories` AS c ON c.id = cp.category_id WHERE c.uuid = ?",  uuid, (err, rows) => {
+        result(err, rows);
+    });
 };
