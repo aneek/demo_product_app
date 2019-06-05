@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "c86d1aa9-f76a-40d2-80be-c35d55835904",
+		"name": "Demo App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/category/371390e0-8475-11e9-9e2d-8f39ce304844",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"category",
+						"371390e0-8475-11e9-9e2d-8f39ce304844"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Parent Category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Women's Fashion\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Child Category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Women's Shoes\",\n    \"parent\": 17\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Category",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Mobiles, Computers etc.\",\n    \"parent\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/category/371390e0-8475-11e9-9e2d-8f39ce304844",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"category",
+						"371390e0-8475-11e9-9e2d-8f39ce304844"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/category/b343a840-861d-11e9-b69c-21981c59f4ca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"category",
+						"b343a840-861d-11e9-b69c-21981c59f4ca"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"One Plus 6T\",\n\t\"description\": \"Latest Mobile from One Plus\",\n\t\"sku\": \"OP00002\",\n\t\"price\": \"35000.00\",\n\t\"quantity\": \"1000\",\n\t\"in_stock\": true,\n\t\"category\": [\"1\", \"2\", \"4\", \"5\"]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"One Plus 7\",\n\t\"description\": \"Latest Mobile from One Plus from India\",\n\t\"sku\": \"OP00001\",\n\t\"price\": \"57000.00\",\n\t\"quantity\": \"1000\",\n\t\"in_stock\": true,\n\t\"category\": [\"1\", \"2\", \"4\"]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/b23d5980-8796-11e9-8a77-799bb2f354c1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"b23d5980-8796-11e9-8a77-799bb2f354c1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"One Plus 7\",\n\t\"description\": \"Latest Mobile from One Plus\",\n\t\"sku\": \"OP00001\",\n\t\"price\": \"57000.00\",\n\t\"quantity\": \"1000\",\n\t\"in_stock\": true,\n\t\"category\": [\"1\", \"2\", \"4\", \"5\"]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product In Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/category/371390e0-8475-11e9-9e2d-8f39ce304844/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"category",
+						"371390e0-8475-11e9-9e2d-8f39ce304844",
+						"product"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
